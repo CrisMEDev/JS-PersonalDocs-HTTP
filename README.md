@@ -1,7 +1,7 @@
 
-# Webpack starter
+# Peticiones http y subida de archivos
 
-Este es el proyecto inicial para crear aplicaciones usando webpack.
+Repositorio con el objetivo de mostrar como hacer una subida de archibos y peticiones http con JS. 
 
 ### Notas:
 
