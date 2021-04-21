@@ -1,6 +1,7 @@
-import { obtenerChiste } from "./js/http-provider";
+import { init } from './js/jokes-page';
 
 
 
-obtenerChiste().then( console.log );
+init();
+
 
