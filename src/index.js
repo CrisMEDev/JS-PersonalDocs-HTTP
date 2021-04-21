@@ -11,4 +11,9 @@ CRUD.crearUsuario({
     job:  'Programmer'
 }).then( console.log );
 
+CRUD.updateUsuario( 1, {
+    name: 'Aurora',
+    job:  'Production leader'
+}).then( console.log );
+
 
