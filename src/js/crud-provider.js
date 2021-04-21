@@ -2,7 +2,7 @@
 const urlCRUD = 'https://reqres.in/api/users';
 
 const getUsuario = async(id) => {
-    const resp = await fetch(`${ urlCRUD }/${ id }`);
+    const resp = await fetch(`${ urlCRUD }/${ id }`);   // Por defecto se realiza la peticion GET
     const {data} = await resp.json();
 
     return data;
@@ -32,10 +32,19 @@ const updateUsuario = async( id, usuario ) => {
     return await resp.json();
 }
 
+const borrarUsuario = async( id  ) => {
+    const resp = await fetch( `${urlCRUD}/${id}`, {
+        method: 'DELETE',
+    });
+
+    return ( resp.ok ) ? 'Borrado' : 'No se pudo eliminar';
+}
+
 
 export {
     getUsuario,
     crearUsuario,
-    updateUsuario
+    updateUsuario,
+    borrarUsuario
 }
 

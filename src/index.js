@@ -16,4 +16,6 @@ CRUD.updateUsuario( 1, {
     job:  'Production leader'
 }).then( console.log );
 
+CRUD.borrarUsuario(2).then( console.log );
+
 
