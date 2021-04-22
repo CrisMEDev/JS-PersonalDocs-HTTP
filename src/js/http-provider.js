@@ -1,3 +1,4 @@
+import * as keys from './keys';
 
 const jokeUrl     = 'https://api.chucknorris.io/jokes/random';
 const urlUsuarios = 'https://reqres.in/api/users?page=2';
@@ -48,8 +49,36 @@ const obtenerUsuarios = async() => {
 
 }
 
+// archivoSubir :: File
+const subirImg = async( archivoSubir ) => {
+    const formData = new FormData();
+    formData.append('upload_preset', keys.uploadPresetCloudinary);
+    formData.append('file', archivoSubir);
+
+    try {
+        const resp = await fetch( keys.cloudinaryUrl, {
+            method: 'POST',
+            body:   formData
+        });
+
+        if ( resp.ok ){
+            const cloudResp = await resp.json();
+            // console.log(cloudResp);
+            return cloudResp.secure_url;
+        } else {
+            throw await resp.json();    // Si cloudinary responde con un error, aqui se atrapa para
+                                        // que el catch se active y ver que paso
+        }
+
+    } catch(err){
+        throw err;
+    }
+}
+
+
 export {
     obtenerChiste,
-    obtenerUsuarios
+    obtenerUsuarios,
+    subirImg
 }
 

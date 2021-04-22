@@ -1,4 +1,4 @@
-
+import { subirImg } from './http-provider';
 
 const body = document.body;
 let inputFile, imgFoto;
@@ -26,6 +26,7 @@ const eventos = () => {
     inputFile.addEventListener( 'change', (event) => {
         const file = event.target.files[0];
         // console.log(file);
+        subirImg( file ).then( secure_url => imgFoto.src = secure_url );
     });
 }
 
